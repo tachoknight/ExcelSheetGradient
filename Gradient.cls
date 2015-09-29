@@ -41,6 +41,10 @@ Sub GradientCellBlock(selectedBlock As String, fromColorRGB As Variant, toColorR
     
     Dim ratio As Double
     
+    ' The number of rows in the block as a double so
+    ' we don't have to compute it every time
+    Dim rowCount As Double
+    
     ' Get our from and to colors from the respective arrays
     fromRed = CDbl(fromColorRGB(0))
     fromGreen = CDbl(fromColorRGB(1))
@@ -53,10 +57,13 @@ Sub GradientCellBlock(selectedBlock As String, fromColorRGB As Variant, toColorR
     ' And convert the string to a range object
     Set rangeBlock = Range(selectedBlock)
     
+    ' And get the number of rows we're working with
+    rowCount = CDbl(rangeBlock.Rows.Count)
+    
     ' Now for each row in the block...
     For i = 1 To rangeBlock.Rows.Count
         ' ... calculate the ratio ...
-        ratio = CDbl(i) / CDbl(rangeBlock.Rows.Count)
+        ratio = CDbl(i) / rowCount
         
         ' ... and use that to calculate our new RGB ...
         red = CInt(toRed * ratio + fromRed * (1# - ratio))
