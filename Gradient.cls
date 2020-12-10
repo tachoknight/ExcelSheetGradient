@@ -70,6 +70,9 @@ Sub GradientCellBlock(selectedBlock As String, fromColorRGB As Variant, toColorR
         green = CInt(toGreen * ratio + fromGreen * (1# - ratio))
         blue = CInt(toBlue * ratio + fromBlue * (1# - ratio))
         
+        ' Set the cell text to the RGB value (for debugging, etc.)
+        'Cells(rangeBlock.Row + i - 1, rangeBlock.Column).Value = CStr(red) & "/" & CStr(green) & "/" & CStr(blue)
+  
         ' ... and set the row, from the first to last column, in the new shade
         Range(Cells(rangeBlock.Row + i - 1, rangeBlock.Column), Cells(rangeBlock.Row + i - 1, rangeBlock.Columns.Count)).Interior.Color = RGB(red, green, blue)
     Next
