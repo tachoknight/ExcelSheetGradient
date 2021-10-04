@@ -1,6 +1,10 @@
 # ExcelSheetGradient
 VBA Macro to color the rows of a cell block from one color to another
 
+Example:
+
+![Example](demo.png)
+
 I couldn't find a decent way to color the cells in an Excel spreadsheet with a gradient from one color to another and not use the box shape (which does have a gradient fill option) so over lunch decided to write my own. 
 
 Add `gradient.cls` to whatever workbook you want to use the macro, then call it like:
